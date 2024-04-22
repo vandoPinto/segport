@@ -89,4 +89,9 @@ p {
         font-size: 28px;
         margin: 40px auto;
     }
+
+    iframe {
+        width: 310px;
+        height: auto;
+    }
 }
