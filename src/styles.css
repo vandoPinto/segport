@@ -1,4 +1,16 @@
 @import url('resete.css');
+@import url('nav.css');
+@import url('aviso.css');
+@import url('banner.css');
+@import url('titulo.css');
+@import url('beneficios.css');
+@import url('saiba-mais.css');
+@import url('sobre-nos.css');
+@import url('aplicacoes.css');
+@import url('controle-acesso.css');
+@import url('contato.css');
+@import url('conte-conosco.css');
+@import url('footer.css');
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 
 :root {
@@ -18,38 +30,9 @@
     font-style: normal;
 }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--gray-secundary);
-}
-
-nav img {
-    width: 160px;
-    margin: 10px auto;
-}
-
-nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 16px;
-    /* gap: 30px; */
-}
-
-nav ul li a {
-    padding: 20px;
-}
-
 main {
     text-align: center;
     margin: 40px 60px;
-}
-
-.container-button {
-    position: absolute;
-    bottom: 330px;
-    left: 170px;
 }
 
 .button {
@@ -68,31 +51,6 @@ main {
 .button:hover {
     opacity: .7;
     background-color: var(--primary-collor);
-}
-
-
-.aviso {
-    background-color: var(--primary-collor);
-    font-size: 12px;
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-family: Helvetica, arial, sans-serif;
-}
-
-.banner {
-    background-image: url(../img/background.png);
-    background-repeat: no-repeat;
-    width: 100%;
-    min-height: 800px;
-    background-size: cover;
-    position: relative;
-}
-
-.titulo {
-    text-align: center;
-    margin: 40px auto;
 }
 
 h1 {
@@ -119,179 +77,16 @@ p {
     color: var(--black-claro);
 }
 
-
 .video {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.beneficios {
-    text-align: center;
-    margin: 40px auto;
-}
 
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-around;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 280px;
-    margin-bottom: 30px;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card p {
-    font-size: 16px;
-    line-height: 1.75;
-}
-
-.saiba-mais {
-    background-image: url(../img/fundo.webp);
-    background-repeat: no-repeat;
-    width: 100%;
-    min-height: 400px;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    gap: 30px;
-}
-
-.saiba-mais>span {
-    font-size: 48px;
-    color: var(--white);
-    text-align: center;
-    font-family: 'League Spartan', arial, helvetica, sans-serif;
-    font-weight: bold;
-    width: 60%;
-}
-
-.saiba-mais>p {
-    color: var(--white);
-    width: 60%;
-}
-
-.sobre-nos {
-    text-align: center;
-    margin: 40px auto;
-}
-
-
-.sobre-nos .container {
-    display: flex;
-    text-align: justify;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    gap: 50px;
-}
-
-.sobre-nos .container>div {
-    display: grid;
-    gap: 32px;
-}
-
-.sobre-nos .container>div .button {
-    background-color: transparent;
-    color: var(--primary-collor);
-    padding: 0;
-    text-decoration: underline;
-}
-
-
-.aplicacoes {
-    text-align: center;
-    margin: 40px auto;
-}
-
-.aplicacoes .aplicacoes-card {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-}
-
-.aplicacoes .aplicacoes-card h2 {
-    margin-bottom: 32px;
-}
-
-.aplicacoes .aplicacoes-card>img {
-    width: 40%;
-    height: auto;
-    margin: 27px;
-}
-
-
-.controle-acesso h1 {
-    width: 80%;
-}
-
-.controle-acesso p {
-    width: 70%;
-    margin: 0 auto;
-    text-align: justify;
-    font-size: 16px;
-    line-height: 1.75;
-}
-
-
-.contato {
-    text-align: center;
-    margin: 40px auto;
-}
-
-.contato-card {
-    display: flex;
-}
-
-.contato-card div {
-    text-align: justify;
-    margin: 90px;
-    gap: 30px;
-    display: inline-grid;
-}
-
-.telefone {
-    text-align: center;
-    color: var(--primary-collor);
-    font-size: 32px;
-}
-
-.contato-card img {
-    width: 43%;
-    height: 100%;
-}
-
-
-.conecte-conosco {
-    text-align: center;
-    margin: 40px auto;
-}
-
-
-footer {
-    background-color: var(--gray-secundary);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 50px 10px;
-}
-
-footer>a>img {
-    width: 60%;
+@media screen and (max-width: 450px) {
+    h1 {
+        font-size: 28px;
+        margin: 40px auto;
+    }
 }

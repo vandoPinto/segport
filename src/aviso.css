@@ -1,0 +1,9 @@
+.aviso {
+    background-color: var(--primary-collor);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-family: Helvetica, arial, sans-serif;
+}

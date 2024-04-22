@@ -1,0 +1,31 @@
+.sobre-nos {
+    text-align: center;
+    margin: 40px auto;
+}
+
+
+.sobre-nos .container {
+    display: flex;
+    text-align: justify;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.sobre-nos .container>div {
+    display: grid;
+    gap: 32px;
+}
+
+.sobre-nos .container>div .button {
+    background-color: transparent;
+    color: var(--primary-collor);
+    padding: 0;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 450px) {
+    .sobre-nos .container {
+        flex-direction: column;
+    }
+}

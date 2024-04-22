@@ -1,0 +1,37 @@
+.aplicacoes {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.aplicacoes .aplicacoes-card {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.aplicacoes .aplicacoes-card h2 {
+    margin-bottom: 32px;
+}
+
+.aplicacoes .aplicacoes-card>img {
+    width: 40%;
+    height: auto;
+    margin: 27px;
+}
+
+@media screen and (max-width: 450px) {
+    .aplicacoes .aplicacoes-card {
+        flex-direction: column;
+        margin-bottom: 60px;
+        gap: 0px;
+    }
+
+    .aplicacoes .aplicacoes-card>img {
+        width: 140%;
+    }
+
+    .aplicacoes .aplicacoes-card h2 {
+        margin-bottom: 12px;
+    }
+}

@@ -1,0 +1,21 @@
+.controle-acesso h1 {
+    width: 80%;
+}
+
+.controle-acesso p {
+    width: 70%;
+    margin: 0 auto;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+@media screen and (max-width: 450px) {
+    .controle-acesso h1 {
+        width: 100%;
+    }
+
+    .controle-acesso p {
+        width: 100%;
+    }
+}

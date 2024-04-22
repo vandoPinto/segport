@@ -1,0 +1,19 @@
+.banner {
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 800px;
+    background-size: cover;
+    position: relative;
+}
+
+@media screen and (max-width: 450px) {
+    .banner {
+        min-height: 210px;
+    }
+
+    .container-button {
+        bottom: 30px;
+        left: 70px;
+    }
+}

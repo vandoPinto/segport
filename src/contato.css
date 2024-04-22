@@ -1,0 +1,43 @@
+.contato {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.contato-card {
+    display: flex;
+}
+
+.contato-card div {
+    text-align: justify;
+    margin: 90px;
+    gap: 30px;
+    display: inline-grid;
+}
+
+.telefone {
+    text-align: center;
+    color: var(--primary-collor);
+    font-size: 32px;
+}
+
+.contato-card img {
+    width: 43%;
+    height: 100%;
+}
+
+@media screen and (max-width: 450px) {
+    .contato-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contato-card div {
+        margin: 0;
+        margin-bottom: 30px;
+    }
+
+    .contato-card img {
+        width: 100%;
+        height: 100%;
+    }
+}
