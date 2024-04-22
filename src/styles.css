@@ -40,7 +40,6 @@ main {
     min-height: 56px;
     align-items: center;
     cursor: pointer;
-
 }
 
 .button:hover {
@@ -63,21 +62,15 @@ main {
     background-image: url(../img/background.png);
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 660px;
+    min-height: 710px;
     background-size: cover;
     position: relative;
 }
-
-
-
-
 
 .titulo {
     text-align: center;
     margin: 40px auto;
 }
-
-
 
 h1 {
     color: var(--primary-collor);
@@ -114,8 +107,6 @@ p {
     text-align: center;
     margin: 40px auto;
 }
-
-
 
 
 .cards {
@@ -200,13 +191,10 @@ p {
 }
 
 
-
 .aplicacoes {
     text-align: center;
     margin: 40px auto;
 }
-
-
 
 .aplicacoes .aplicacoes-card {
     display: flex;
@@ -267,13 +255,10 @@ p {
 }
 
 
-
-
 .conecte-conosco {
     text-align: center;
     margin: 40px auto;
 }
-
 
 
 footer {
