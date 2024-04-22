@@ -30,7 +30,7 @@ nav ul li a {
     left: 170px;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 980px) {
 
     .menu-hamburger {
         display: block;
