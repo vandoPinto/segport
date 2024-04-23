@@ -60,9 +60,9 @@ h1 {
 }
 
 h2 {
-    color: var(--black-claro);
-    font-size: 22px;
-    font-family: Arial, Helvetica, sans-serif;
+    color: var(--primary-collor);
+    margin: 100px auto;
+    font-family: 'League Spartan', arial, helvetica, sans-serif;
 }
 
 h3 {

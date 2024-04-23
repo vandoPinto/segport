@@ -1,58 +1,20 @@
-<html lang="en" data-lt-installed="true">
+<!DOCTYPE html>
+<html lang="pt-BR" data-lt-installed="true">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orçamento</title>
+    <meta name="description"
+        content="A página apresenta uma série de serviços oferecidos, como a criação de sites em HTML, design e desenvolvimento, responsividade, integração de conteúdo, SEO (Otimização para Mecanismos de Busca), testes e garantia de qualidade, integração com serviços externos, treinamento e suporte, hospedagem e domínio, manutenção e atualizações. Cada serviço é detalhado, fornecendo uma compreensão abrangente dos benefícios oferecidos. Além disso, a página inclui uma seção de visualização do protótipo do site em dispositivos móveis e de desktop, bem como detalhes sobre uma promoção especial de indicação, oferecendo a primeira manutenção gratuita do site para clientes indicados. A seção de valores apresenta informações sobre descontos especiais concedidos por indicações e detalhes sobre opções de pagamento, como PIX.">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // var precoVisible = false;
-            // var interval;
-
-            // function checkVisibility() {
-            //     var windowHeight = $(window).height();
-            //     var scrollTop = $(window).scrollTop();
-            //     var precoOffsetTop = $(".valores").offset().top;
-            //     if ((scrollTop + 511.0) > precoOffsetTop) {
-            //         precoVisible = true;
-            //         return true;
-            //     } else {
-            //         precoVisible = false;
-            //         clearInterval(interval);
-            //         return false;
-            //     }
-            // }
-
-            // function decreasePrice() {
-            //     clearInterval(interval);
-            //     var price = 2000;
-            //     var targetPrice = 1500;
-            //     var decreaseInterval = 2000 / ((price - targetPrice) / 100);
-            //     interval = setInterval(function () {
-            //         if (price >= targetPrice) {
-            //             var formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-            //             $(".preco").text(formattedPrice);
-            //             price -= 100;
-            //         } else {
-            //             clearInterval(interval);
-            //         }
-            //     }, decreaseInterval);
-            // }
-
-            // $(window).scroll(function () {
-            //     // checkVisibility();
-            //     if (checkVisibility) {
-            //         decreasePrice();
-            //     }
-            // });
-
             $(".service-item").click(function () {
                 $(this).find(".service-description").slideToggle();
             });
         });
-
     </script>
 </head>
 
@@ -73,25 +35,18 @@
             style="background-color: #05375c;border-radius: 22px;width: 70%;padding: 30px;margin: 90px auto;">
             <h2 class="section-title">Serviços atribuídos</h2>
             <ul style="display: flex;align-items: center;justify-content: space-evenly;">
-                <div>
-                    <li>Criação de site em HTML</li>
-                    <li>Design e Desenvolvimento</li>
-                    <li>Responsividade</li>
-                    <li>Integração de Conteúdo</li>
-                    <li>SEO (Search Engine Optimization)</li>
-                    <li>Testes e Garantia de Qualidade</li>
-                </div>
-                <div>
-                    <li>Integração com Serviços Externos</li>
-                    <li>Treinamento e Suporte</li>
-                    <li>Hospedagem e Domínio</li>
-                    <li>Manutenção e Atualizações</li>
-                    <!-- <li>Google Analytics</li> -->
-                    <!-- <li>Termos e Condições</li> -->
-                </div>
+                <li>Criação de site em HTML</li>
+                <li>Design e Desenvolvimento</li>
+                <li>Responsividade</li>
+                <li>Integração de Conteúdo</li>
+                <li>SEO (Search Engine Optimization)</li>
+                <li>Testes e Garantia de Qualidade</li>
+                <li>Integração com Serviços Externos</li>
+                <li>Treinamento e Suporte</li>
+                <li>Hospedagem e Domínio</li>
+                <li>Manutenção e Atualizações</li>
             </ul>
         </section>
-
         <section id="services-section" style="margin: 100px 110px;display: flex;flex-direction: column;">
             <h2 style="font-size: 20px;margin-bottom: 20px;text-align: center;">Descrição dos Serviços</h2>
             <div class="service-item">
@@ -166,26 +121,9 @@
                     conteúdo e funcionalidades atualizados, além de garantir a segurança e o desempenho do site a longo
                     prazo.</p>
             </div>
-            <!-- <div class="service-item">
-                <h2 class="service-title">Google Analytics:</h2>
-                <div class="divisor"></div>
-                <p class="service-description">Refere-se à configuração e uso da ferramenta Google Analytics para
-                    monitorar e analisar o tráfego do site, comportamento do usuário e outras métricas importantes para
-                    avaliar o desempenho do site.</p>
-            </div> -->
-            <!-- <div class="service-item">
-                <h2 class="service-title">Termos e Condições:</h2>
-                <div class="divisor"></div>
-                <p class="service-description">Detalha os termos contratuais relacionados à criação, hospedagem,
-                    manutenção e uso do site, incluindo prazos, formas de pagamento, políticas de cancelamento e outros
-                    aspectos legais e comerciais.</p>
-            </div> -->
         </section>
-
-
         <section class="prototipo">
             <h2 class="section-title">Visualização do Protótipo</h2>
-
             <div class="container-iframe">
                 <h2 class="section-title">Mobile</h2>
                 <div class="mobile-iframe-container" style="margin-bottom: 30px;">
@@ -200,7 +138,6 @@
                 <iframe src="./projeto/index.html" frameborder="0" width="100%" height="500px"></iframe>
             </div>
         </section>
-
         <section class="prototipo-mobile">
             <div class="container-iframe-dekstop">
                 <h2 class="section-title">Dekstop (Computador)</h2>
@@ -208,7 +145,6 @@
                     uma nova aba</a>
             </div>
         </section>
-
         <section class="valores" style="display: flex;margin-top: 110px;align-items: center;gap: 30px;">
             <div>
                 <h1>Promoção de Indicação: Primeira Manutenção Gratuita do Site</h1>
@@ -232,12 +168,12 @@
                 </div>
                 <div style="display: flex;align-items: center;justify-content: space-around;flex-direction: column;">
                     <p class="preco" style="color: #18e6ac;font-size: 54px;font-weight:  bold;line-height: 0;">
-                        R$&nbsp;1.500,00</p>
-                    <!-- <p style="line-height: 0;">à vista no pix</p> -->
+                        R$ 1.500,00</p>
                 </div>
             </div>
             <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                <img src="./img/download.png" alt="pix" style="width: 210px;border: 1px solid white;padding: 10px;">
+                <img src="./img/download.png" alt="pix"
+                    style="width: 210px; height: auto; border: 1px solid white;padding: 10px;">
                 <p style="text-align: center;">PIX<br>Vando Carvalho Rodrigues Pinto<br>Chave-pix: 71730745172 </p>
             </div>
         </section>
