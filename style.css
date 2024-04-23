@@ -59,6 +59,10 @@ ul li:before {
     margin-right: 5px;
 }
 
+a:hover {
+    color: #007bff;
+}
+
 /* .divisor {
     border-top: 1px dashed #ccc;
     margin-top: 20px;
@@ -174,6 +178,7 @@ iframe {
     li {
         font-size: 12px !important;
     }
+
 
     ul {
         flex-direction: column;
