@@ -8,45 +8,45 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            var precoVisible = false;
-            var interval;
+            // var precoVisible = false;
+            // var interval;
 
-            function checkVisibility() {
-                var windowHeight = $(window).height();
-                var scrollTop = $(window).scrollTop();
-                var precoOffsetTop = $(".valores").offset().top;
-                if ((scrollTop + 511.0) > precoOffsetTop) {
-                    precoVisible = true;
-                    return true;
-                } else {
-                    precoVisible = false;
-                    clearInterval(interval);
-                    return false;
-                }
-            }
+            // function checkVisibility() {
+            //     var windowHeight = $(window).height();
+            //     var scrollTop = $(window).scrollTop();
+            //     var precoOffsetTop = $(".valores").offset().top;
+            //     if ((scrollTop + 511.0) > precoOffsetTop) {
+            //         precoVisible = true;
+            //         return true;
+            //     } else {
+            //         precoVisible = false;
+            //         clearInterval(interval);
+            //         return false;
+            //     }
+            // }
 
-            function decreasePrice() {
-                clearInterval(interval);
-                var price = 2000;
-                var targetPrice = 1500;
-                var decreaseInterval = 2000 / ((price - targetPrice) / 100);
-                interval = setInterval(function () {
-                    if (price >= targetPrice) {
-                        var formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-                        $(".preco").text(formattedPrice);
-                        price -= 100;
-                    } else {
-                        clearInterval(interval);
-                    }
-                }, decreaseInterval);
-            }
+            // function decreasePrice() {
+            //     clearInterval(interval);
+            //     var price = 2000;
+            //     var targetPrice = 1500;
+            //     var decreaseInterval = 2000 / ((price - targetPrice) / 100);
+            //     interval = setInterval(function () {
+            //         if (price >= targetPrice) {
+            //             var formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            //             $(".preco").text(formattedPrice);
+            //             price -= 100;
+            //         } else {
+            //             clearInterval(interval);
+            //         }
+            //     }, decreaseInterval);
+            // }
 
-            $(window).scroll(function () {
-                // checkVisibility();
-                if (checkVisibility) {
-                    decreasePrice();
-                }
-            });
+            // $(window).scroll(function () {
+            //     // checkVisibility();
+            //     if (checkVisibility) {
+            //         decreasePrice();
+            //     }
+            // });
 
             $(".service-item").click(function () {
                 $(this).find(".service-description").slideToggle();
