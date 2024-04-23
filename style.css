@@ -211,8 +211,18 @@ iframe {
     }
 
     .desconto {
-        font-size: 12px !important;
+        font-size: 30px !important;
         margin-right: 10px;
+    }
+
+    .desconto p {
+        font-size: 34px !important;
+        /* margin-right: 10px; */
+    }
+
+    .valor-real {
+        font-size: 34px !important;
+        /* margin-right: 10px; */
     }
 
     .prototipo {
@@ -228,11 +238,20 @@ iframe {
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        /* gap: 10px; */
         border: 1px solid;
-        /* width: 100%; */
         height: auto;
-        /* margin: 0 auto; */
-        /* margin-top: 30px; */
+    }
+
+    .etiqueta {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px !important;
+    }
+
+    .preco {
+        font-size: 45px !important;
     }
 }

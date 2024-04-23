@@ -17,9 +17,11 @@
                 var precoOffsetTop = $(".valores").offset().top;
                 if ((scrollTop + 511.0) > precoOffsetTop) {
                     precoVisible = true;
+                    return true;
                 } else {
                     precoVisible = false;
                     clearInterval(interval);
+                    return false;
                 }
             }
 
@@ -27,7 +29,7 @@
                 clearInterval(interval);
                 var price = 2000;
                 var targetPrice = 1500;
-                var decreaseInterval = 3000 / ((price - targetPrice) / 100);
+                var decreaseInterval = 2000 / ((price - targetPrice) / 100);
                 interval = setInterval(function () {
                     if (price >= targetPrice) {
                         var formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -40,8 +42,8 @@
             }
 
             $(window).scroll(function () {
-                checkVisibility();
-                if (precoVisible) {
+                // checkVisibility();
+                if (checkVisibility) {
                     decreasePrice();
                 }
             });
@@ -85,7 +87,7 @@
                     <li>Hospedagem e Domínio</li>
                     <li>Manutenção e Atualizações</li>
                     <li>Google Analytics</li>
-                    <li>Termos e Condições</li>
+                    <!-- <li>Termos e Condições</li> -->
                 </div>
             </ul>
         </section>
@@ -171,13 +173,13 @@
                     monitorar e analisar o tráfego do site, comportamento do usuário e outras métricas importantes para
                     avaliar o desempenho do site.</p>
             </div>
-            <div class="service-item">
+            <!-- <div class="service-item">
                 <h2 class="service-title">Termos e Condições:</h2>
                 <div class="divisor"></div>
                 <p class="service-description">Detalha os termos contratuais relacionados à criação, hospedagem,
                     manutenção e uso do site, incluindo prazos, formas de pagamento, políticas de cancelamento e outros
                     aspectos legais e comerciais.</p>
-            </div>
+            </div> -->
         </section>
 
 
@@ -209,7 +211,7 @@
         <section class="valores" style="display: flex;margin-top: 110px;align-items: center;gap: 30px;">
             <div>
                 <h1>Observações:</h1>
-                <p>Receba um desconto especial ao ser indicado por Suelen.</p>
+                <p>Receba um desconto especial por ser indicado.</p>
                 <div>
                     <h1>Promoção de Indicação: Primeira Manutenção Gratuita do Site</h1>
                     <p>Aproveite nossa promoção especial de indicação! Ao recomendar nossos serviços a outras pessoas e
@@ -222,18 +224,19 @@
                 </div>
 
             </div>
-            <div style="background-color: #05375c;border-radius: 22px;padding: 30px 70px;">
+            <div class="etiqueta" style="background-color: #05375c;border-radius: 22px;padding: 30px 70px;">
                 <div style="display: flex;align-items: center;justify-content: space-evenly;">
                     <div class="desconto"
                         style="background-color: #18e6ac;padding: 10px;border-radius: 22px;color: #264c64;font-weight: bold;font-size: 34px;">
                         -25%</div>
-                    <p style="font-size: 34px;font-weight: bold;text-decoration: line-through; line-height: 0;"> R$
+                    <p class="valor-real"
+                        style="font-size: 34px;font-weight: bold;text-decoration: line-through; line-height: 0;"> R$
                         2.000,00 </p>
                 </div>
                 <div style="display: flex;align-items: center;justify-content: space-around;flex-direction: column;">
                     <p class="preco" style="color: #18e6ac;font-size: 54px;font-weight:  bold;line-height: 0;">
                         R$&nbsp;1.500,00</p>
-                    <p style="line-height: 0;">à vista no pix</p>
+                    <!-- <p style="line-height: 0;">à vista no pix</p> -->
                 </div>
             </div>
             <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
