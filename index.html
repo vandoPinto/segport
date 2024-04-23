@@ -1,224 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lt-installed="true">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./img/shortcut.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>SegPort – Empresa especializada em segurança e portaria remota</title>
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var precoVisible = false;
+            var interval;
+
+            function checkVisibility() {
+                var windowHeight = $(window).height();
+                var scrollTop = $(window).scrollTop();
+                var precoOffsetTop = $(".valores").offset().top;
+                if ((scrollTop + 511.0) > precoOffsetTop) {
+                    precoVisible = true;
+                } else {
+                    precoVisible = false;
+                    clearInterval(interval);
+                }
+            }
+
+            function decreasePrice() {
+                clearInterval(interval);
+                var price = 2000;
+                var targetPrice = 1500;
+                var decreaseInterval = 3000 / ((price - targetPrice) / 100);
+                interval = setInterval(function () {
+                    if (price >= targetPrice) {
+                        var formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                        $(".preco").text(formattedPrice);
+                        price -= 100;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, decreaseInterval);
+            }
+
+            $(window).scroll(function () {
+                checkVisibility();
+                if (precoVisible) {
+                    decreasePrice();
+                }
+            });
+
+            $(".service-item").click(function () {
+                $(this).find(".service-description").slideToggle();
+            });
+        });
+
+    </script>
 </head>
 
 <body>
-    <header class="header">
-        <nav>
-            <a href="#"><img src="img/icon/segportaria.png" alt=""></a>
-            <img id="menu-toggle" class="menu-hamburger" src="./img/icon/hamburger-icon.svg" alt="menuHamburger">
-            <ul class="janela-menu">
-                <li><a href="#titulo">O futuro chegou</a></li>
-                <li><a href="#beneficios">Benefícios</a></li>
-                <li><a href="#sobre-nos">Sobre Nós</a></li>
-                <li><a href="#aplicacoes">Aplicações</a></li>
-                <li><a href="#controle-acesso">SegPort</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#conecte-conosco">Conecte-se conosco</a></li>
-            </ul>
-        </nav>
-
-        <section class="aviso">
-            Ganhe 10% de desconto contratando ainda neste mês.
-        </section>
-
-        <section class="banner">
-            <div class="container-button">
-                <a class="button">QUERO TESTAR A LARA</a>
-            </div>
-        </section>
+    <header style="display: flex;align-items: center;justify-content: space-between;">
+        <div style="display: flex;gap: 10px;">
+            <img src="./img/dinheiro.png" alt="Dinheiro" style="width: 30px;height: 30px;">
+            <h1>ORÇAMENTO</h1>
+        </div>
+        <div style="display: flex;flex-direction: column;align-items: flex-end;gap: 10px;">
+            <a href="tel:+5561985992343" target="_blank">(61) 98599-2343</a>
+            <a href="https://wa.me/+5561985992343" target="_blank">Whatsapp</a>
+            <a href="mailto:vandopintoo@gmail.com" target="_blank">vandopintoo@gmail.com</a>
+        </div>
     </header>
     <main>
-        <div class="titulo" id="titulo">
-            <h1>O futuro chegou para seu condomínio</h1>
-            <p>Utilize a IA para aumentar a performance do seu condomínio.</p>
-            <p>Acesse rapidamente todas as possibilidades dos Leitores Faciais Hikvision</p>
-        </div>
-        <div class="video">
-            <iframe width="925" height="521" src="https://www.youtube.com/embed/KuukHyHXkk4"
-                title="LARA: A INTELIGÊNCIA ARTIFICIAL DA SEGPORT!!" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        <section class="servicos"
+            style="background-color: #05375c;border-radius: 22px;width: 70%;padding: 30px;margin: 90px auto;">
+            <h2 class="section-title">Serviços atribuídos</h2>
+            <ul style="display: flex;align-items: center;justify-content: space-evenly;">
+                <div>
+                    <li>Criação de site em HTML</li>
+                    <li>Design e Desenvolvimento</li>
+                    <li>Responsividade</li>
+                    <li>Integração de Conteúdo</li>
+                    <li>SEO (Search Engine Optimization)</li>
+                    <li>Testes e Garantia de Qualidade</li>
+                </div>
+                <div>
+                    <li>Integração com Serviços Externos</li>
+                    <li>Treinamento e Suporte</li>
+                    <li>Hospedagem e Domínio</li>
+                    <li>Manutenção e Atualizações</li>
+                    <li>Google Analytics</li>
+                    <li>Termos e Condições</li>
+                </div>
+            </ul>
+        </section>
 
-        <section class="beneficios" id="beneficios">
-            <h1>Benefícios</h1>
-            <div class="cards">
-                <div class="card">
-                    <img src="./img/seguranca.webp" alt="homem mostrando celular">
-                    <h3>Segurança</h3>
-                    <p> A SegPort é um serviço de Controle de acesso de condomínio via Whatsapp. Ele proporciona aos
-                        moradores e visitantes uma maneira segura, prática e rápida de acessar o condomínio, além de
-                        notificar a chegada de Delivery ou Encomendas em tempo real. </p>
-                </div>
-                <div class="card">
-                    <img src="./img/rapidez.webp" alt="entregador segurando uma prancheta">
-                    <h3>Rapidez</h3>
-                    <p>Simplificamos a gestão de cadastro de moradores do seu condomínio. Com a SegPort, você elimina
-                        100% de equipamentos de cadastro e computador, tudo é feito pelo celular sem necessidade de
-                        instalar nenhum aplicativo! Apenas Acesso via QR Code.</p>
-                </div>
-                <div class="card">
-                    <img src="./img/praticidade.webp" alt="mulher segurando celular">
-                    <h3>Praticidade</h3>
-                    <p>Cadastro, Aprovação ou Cancelamento de Moradores literalmente na palma da mão, sem precisar
-                        baixar nenhum aplicativo! Totalmente seguro e com tecnologia de ponta. </p>
-                </div>
-                <div class="card">
-                    <img src="./img/caixas.jpeg" alt="mulher segurando celular">
-                    <h3>Auto atendimento e Controle de Encomendas</h3>
-                    <P>No recebimento de encomendas, o condômino é avisado pelo whatsapp, facilitando muito o trabalho
-                        da portaria e zeladoria.</P>
-                    <P>Já os entregadores e visitantes podem realizar o autoatendimento via recepção virtual</P>
-                </div>
+        <section id="services-section" style="margin: 100px 110px;display: flex;flex-direction: column;">
+            <h2 style="font-size: 20px;margin-bottom: 20px;text-align: center;">Descrição dos Serviços</h2>
+            <div class="service-item">
+                <h2 class="service-title">Criação de site em HTML:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Este serviço envolve a criação de um site utilizando a linguagem de
+                    marcação HTML. Isso inclui a estruturação do conteúdo, como texto, imagens e links, de acordo com as
+                    necessidades e especificações do cliente.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Design e Desenvolvimento:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Consiste na concepção visual e implementação técnica do site. Isso inclui
+                    a seleção de cores, tipografia, layout e outros elementos visuais, bem como a codificação do site
+                    utilizando HTML, CSS e possivelmente JavaScript para torná-lo funcional e atraente.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Responsividade:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Refere-se à capacidade do site de se adaptar e funcionar corretamente em
+                    diferentes dispositivos e tamanhos de tela, como desktops, tablets e smartphones. Isso geralmente
+                    envolve a criação de layouts flexíveis e o uso de técnicas de design responsivo.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Integração de Conteúdo:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Envolve a incorporação de textos, imagens, vídeos e outros elementos de
+                    mídia ao site. Isso pode incluir a criação de páginas, formulários de contato, galerias de imagens,
+                    entre outros.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">SEO (Search Engine Optimization):</h2>
+                <div class="divisor"></div>
+                <p class="service-description">É o processo de otimização do site para melhorar sua visibilidade nos
+                    resultados dos mecanismos de busca, como o Google. Isso inclui a seleção de palavras-chave
+                    relevantes, otimização de meta tags, estruturação de URLs e outras práticas para aumentar o tráfego
+                    orgânico.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Testes e Garantia de Qualidade:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Consiste na realização de testes rigorosos para garantir que o site
+                    funcione corretamente em diferentes navegadores, dispositivos e ambientes. Isso inclui a
+                    identificação e correção de bugs, bem como a verificação da usabilidade e acessibilidade do site.
+                </p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Integração com Serviços Externos:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Refere-se à integração do site com outros serviços ou plataformas
+                    externas, como sistemas de gerenciamento de conteúdo (CMS), sistemas de comércio eletrônico, APIs de
+                    terceiros, entre outros.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Treinamento e Suporte:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Envolve a oferta de treinamento para que o cliente possa gerenciar e
+                    atualizar o site por conta própria, bem como o fornecimento de suporte técnico contínuo para
+                    resolver quaisquer problemas ou dúvidas que possam surgir.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Hospedagem e Domínio:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Inclui o fornecimento de serviços de hospedagem para armazenar o site e
+                    torná-lo acessível na internet, bem como o registro e configuração de um domínio exclusivo para o
+                    site.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Manutenção e Atualizações:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Consiste na realização de atualizações regulares do site para manter o
+                    conteúdo e funcionalidades atualizados, além de garantir a segurança e o desempenho do site a longo
+                    prazo.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Google Analytics:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Refere-se à configuração e uso da ferramenta Google Analytics para
+                    monitorar e analisar o tráfego do site, comportamento do usuário e outras métricas importantes para
+                    avaliar o desempenho do site.</p>
+            </div>
+            <div class="service-item">
+                <h2 class="service-title">Termos e Condições:</h2>
+                <div class="divisor"></div>
+                <p class="service-description">Detalha os termos contratuais relacionados à criação, hospedagem,
+                    manutenção e uso do site, incluindo prazos, formas de pagamento, políticas de cancelamento e outros
+                    aspectos legais e comerciais.</p>
             </div>
         </section>
 
-        <section class="saiba-mais">
-            <span>Controle suas Visitas de forma muito mais inteligente</span>
-            <p>Com a LARA você pode convidar seus amigos através do whatsapp.</p>
-            <p>Muito fácil. Ela resolve tudo e já
-                adiciona a foto do seu convidado na Leitora Facial</p>
-            <a class="button" href="#">SAIBA MAIS</a>
-        </section>
 
-        <section class="sobre-nos" id="sobre-nos">
-            <h1>Sobre Nós</h1>
-            <div class="container">
-                <div>
-                    <h2>Informações adicionais</h2>
-                    <p>Que tal integrar o controle de acesso e visitas em seu lar com a praticidade de um app de
-                        conversas? Trazemos a inovação de uma forma simples e conveniente para seu dia a dia. </p>
-                    <p>A SegPort é um serviço de controle de acesso e comunicação para condomínios através do Whatsapp.
-                        Ele proporciona aos moradores e visitantes uma maneira segura, prática e rápida de acessar o
-                        condomínio, além de notificar a chegada de Delivery ou Encomendas em tempo real. </p>
-                    <p>Temos como missão inovar a forma de gestão de moradores e controle de acesso de condomínio, de
-                        forma prática e rápida sem abrir mão da segurança. Além de democratizar e facilitar a forma como
-                        este controle é feito, sendo por meio do equipamento mais popular e abrangente que todos
-                        possuem: o telefone celular.</p>
-                    <p>Como missão, a SegPort procura ser referência no setor de segurança e controle de acesso de
-                        moradores, abrangendo e integrando todos o sistema de acesso dos condomínios comerciais e
-                        residenciais de São Paulo.</p>
-                    <p>Nossa empresa é formada por profissionais que atuam na área de segurança e monitoramento de
-                        acesso de condomínio com mais de 20 anos de experiência, sempre antenados nas mais atuais
-                        tecnologias do setor.</p>
+        <section class="prototipo">
+            <h2 class="section-title">Visualização do Protótipo</h2>
+
+            <div class="container-iframe">
+                <h2 class="section-title">Mobile</h2>
+                <div class="mobile-iframe-container" style="margin-bottom: 30px;">
+                    <iframe src="./projeto/index.html"></iframe>
                 </div>
-                <div>
-                    <h2>Saiba mais</h2>
-                    <p>Quer saber mais sobre como funciona o controle de acesso SegPort e como ele se diferencia dos
-                        demais? Fale com nossa equipe e tire suas dúvidas.</p>
-                    <a class="button" href="#">SAIBA MAIS</a>
-                </div>
+            </div>
+            <div class="container-iframe-dekstop">
+                <h2 class="section-title">Dekstop (Computador)</h2>
+                <a href="./projeto/index.html" target="_blank" style="color: white;padding: 20px;">Abrir protótipo em
+                    uma nova aba</a>
+                <iframe src="./projeto/index.html" frameborder="0" width="100%" height="500px"></iframe>
             </div>
         </section>
 
-        <section class="aplicacoes" id="aplicacoes">
-            <h1>Aplicações</h1>
-            <div class="aplicacoes-card">
-                <img src="./img/predios-ceu.webp" alt="mostrando o ceu na base de predios">
-                <div>
-                    <h2>Comercial</h2>
-                    <p>Aplicação para conjuntos comerciais, edifícios corporativos, entre outros.</p>
-                </div>
-            </div>
-            <div class="aplicacoes-card">
-                <div>
-                    <h2>Condomínios</h2>
-                    <p>Condomínios de todos os portes, fácil gestão, redução de custos.</p>
-                </div>
-                <img src="./img/pai-brincando-crianca.webp" alt="pai brincando com crianca no condominio">
-            </div>
-            <div class="aplicacoes-card">
-                <img src="./img/consultorio.webp" alt="consultorio odontologico">
-                <div>
-                    <h2>Consultórios</h2>
-                    <p>Clinicas e consultórios, fácil gestão de pacientes e clientes.</p>
-                </div>
-            </div>
-            <div class="aplicacoes-card">
-                <div>
-                    <h2>Casas</h2>
-                    <p>Mais segurança e conforto. Acesso prático e rápido.</p>
-                </div>
-                <img src="./img/casas.webp" alt="fachada de casas">
+        <section class="prototipo-mobile">
+            <div class="container-iframe-dekstop">
+                <h2 class="section-title">Dekstop (Computador)</h2>
+                <a href="./projeto/index.html" target="_blank" style="color: white;padding: 20px;">Abrir protótipo em
+                    uma nova aba</a>
             </div>
         </section>
 
-        <section class="controle-acesso" id="controle-acesso">
-            <h1>SegPort – Empresa especializada em segurança e portaria remota</h1>
-            <p>A sua privacidade é importante para nós. É política do SegPort respeitar a sua privacidade em relação a
-                qualquer informação sua que possamos coletar no site SegPort, e outros sites que possuímos e
-                operamos.</p>
-            <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço.
-                Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que
-                estamos coletando e como será usado.</p>
-            <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando
-                armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos,
-                bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
-            <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando
-                exigido por lei.</p>
-        </section>
-
-        <section class="contato" id="contato">
-            <h1>Contato</h1>
-            <div class="contato-card">
-                <div>
-                    <h2>Contrate agora!</h2>
-                    <p>Fale agora mesmo com nossa equipe e leve a revolução em forma de simplicidade e tecnologia
-                        para
-                        seu condomínio.</p>
-                    <h2 class="telefone"><a href="tel:+6133407177">61 3340-7177</a> </h2>
-                    <p>contato@segtrack.com.br</p>
-                    <p>SCLRN Quadra 714, Bloco G, Entrada 51 - 2º Pavimento - Acima da Ciceros Barbearia</p>
-                </div>
-                <img src="./img/contrate.webp" alt="mulher fazendo contratacao">
-            </div>
-        </section>
-
-        <section class="conecte-conosco" id="conecte-conosco">
-            <h1>Conecte-se conosco</h1>
+        <section class="valores" style="display: flex;margin-top: 110px;align-items: center;gap: 30px;">
             <div>
-                <a href="https://www.facebook.com/" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"
-                        width="40" height="40" data-ux="IconSocial"
-                        class="x-el x-el-svg c1-1 c1-2 c1-52 c1-5v c1-5y c1-bg c1-bh c1-bi c1-b c1-c c1-bj c1-bk c1-d c1-bl c1-bm c1-bn c1-bo c1-bp c1-bq c1-br c1-bs c1-e c1-f c1-g">
-                        <g>
-                            <path
-                                d="M20 12a8 8 0 10-9.25 7.903v-5.59H8.719V12h2.031v-1.762c0-2.005 1.194-3.113 3.022-3.113.875 0 1.79.156 1.79.156V9.25h-1.008c-.994 0-1.304.617-1.304 1.25V12h2.219l-.355 2.313H13.25v5.59A8.002 8.002 0 0020 12z"
-                                fill="#1877F2"></path>
-                            <path
-                                d="M15.114 14.313L15.47 12h-2.22v-1.5c0-.633.31-1.25 1.304-1.25h1.008V7.281s-.915-.156-1.79-.156c-1.828 0-3.022 1.107-3.022 3.113V12H8.719v2.313h2.031v5.59c.828.13 1.672.13 2.5 0v-5.59h1.864z"
-                                fill="#fff"></path>
-                        </g>
-                    </svg></a>
-                <a href="https://www.instagram.com/" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"
-                        width="40" height="40" data-ux="IconSocial"
-                        class="x-el x-el-svg c1-1 c1-2 c1-52 c1-5v c1-5y c1-bg c1-bh c1-bi c1-b c1-c c1-bj c1-bk c1-d c1-bl c1-bm c1-bn c1-bo c1-bp c1-bq c1-br c1-bs c1-e c1-f c1-g">
-                        <g fill="#E1306C">
-                            <path
-                                d="M14.667 12a2.57 2.57 0 0 0-.782-1.885A2.57 2.57 0 0 0 12 9.333a2.57 2.57 0 0 0-1.885.782A2.57 2.57 0 0 0 9.333 12c0 .736.26 1.365.782 1.885.52.521 1.149.782 1.885.782a2.57 2.57 0 0 0 1.885-.782c.521-.52.782-1.149.782-1.885zm1.437 0c0 1.139-.4 2.108-1.198 2.906-.798.799-1.767 1.198-2.906 1.198-1.139 0-2.108-.4-2.906-1.198-.799-.798-1.198-1.767-1.198-2.906 0-1.139.4-2.108 1.198-2.906.798-.799 1.767-1.198 2.906-1.198 1.139 0 2.108.4 2.906 1.198.799.798 1.198 1.767 1.198 2.906zm1.125-4.27c0 .263-.094.489-.281.676a.923.923 0 0 1-.677.282.923.923 0 0 1-.677-.282.923.923 0 0 1-.281-.677c0-.264.093-.49.28-.677a.923.923 0 0 1 .678-.281c.264 0 .49.094.677.281a.923.923 0 0 1 .281.677zM12 5.437l-.797-.006a56.514 56.514 0 0 0-1.099 0c-.25.004-.585.014-1.005.032-.42.017-.778.052-1.073.104a4.177 4.177 0 0 0-.745.192c-.347.14-.653.34-.916.605-.264.263-.466.569-.605.916-.076.202-.14.45-.192.745a8.255 8.255 0 0 0-.104 1.073c-.018.42-.028.755-.032 1.005-.003.25-.003.616 0 1.1l.006.796-.006.797c-.003.483-.003.849 0 1.099.004.25.014.585.032 1.005.017.42.052.778.104 1.073.052.295.116.543.192.745.14.347.34.653.605.916.263.264.569.466.916.605.202.076.45.14.745.192.295.052.653.087 1.073.104.42.018.755.028 1.005.032.25.003.616.003 1.1 0l.796-.005.797.005c.483.003.849.003 1.099 0 .25-.004.585-.014 1.005-.032.42-.017.778-.052 1.073-.104.295-.052.543-.116.745-.192.347-.14.653-.34.916-.605.264-.263.466-.569.605-.916.076-.202.14-.45.192-.745.052-.295.087-.653.104-1.073.018-.42.028-.755.032-1.005.003-.25.003-.616 0-1.1L18.562 12l.006-.797c.003-.483.003-.849 0-1.099a38.59 38.59 0 0 0-.032-1.005 8.255 8.255 0 0 0-.104-1.073 4.177 4.177 0 0 0-.192-.745 2.703 2.703 0 0 0-.605-.916 2.703 2.703 0 0 0-.916-.605 4.177 4.177 0 0 0-.745-.192 8.255 8.255 0 0 0-1.073-.104c-.42-.018-.755-.028-1.005-.032-.25-.003-.616-.003-1.1 0L12 5.438zM20 12c0 1.59-.017 2.691-.052 3.302-.07 1.445-.5 2.563-1.292 3.354-.791.792-1.91 1.222-3.354 1.292-.611.035-1.712.052-3.302.052s-2.691-.017-3.302-.052c-1.445-.07-2.563-.5-3.354-1.292-.792-.791-1.222-1.91-1.292-3.354C4.017 14.691 4 13.59 4 12s.017-2.691.052-3.302c.07-1.445.5-2.563 1.292-3.354.791-.792 1.91-1.222 3.354-1.292C9.309 4.017 10.41 4 12 4s2.691.017 3.302.052c1.445.07 2.563.5 3.354 1.292.792.791 1.222 1.91 1.292 3.354.035.611.052 1.712.052 3.302z">
-                            </path>
-                        </g>
-                    </svg></a>
+                <h1>Observações:</h1>
+                <p>Receba um desconto especial ao ser indicado por Suelen.</p>
+                <div>
+                    <h1>Promoção de Indicação: Primeira Manutenção Gratuita do Site</h1>
+                    <p>Aproveite nossa promoção especial de indicação! Ao recomendar nossos serviços a outras pessoas e
+                        elas se tornarem nossos clientes, você terá direito à primeira manutenção do seu site
+                        gratuitamente.</p>
+                    <p>Esta é uma ótima oportunidade para garantir que seu site esteja sempre atualizado e funcionando
+                        perfeitamente, sem custo adicional para você.</p>
+                    <p>Entre em contato conosco para mais detalhes sobre como participar desta promoção e aproveitar
+                        esta oferta exclusiva.</p>
+                </div>
+
+            </div>
+            <div style="background-color: #05375c;border-radius: 22px;padding: 30px 70px;">
+                <div style="display: flex;align-items: center;justify-content: space-evenly;">
+                    <div class="desconto"
+                        style="background-color: #18e6ac;padding: 10px;border-radius: 22px;color: #264c64;font-weight: bold;font-size: 34px;">
+                        -25%</div>
+                    <p style="font-size: 34px;font-weight: bold;text-decoration: line-through; line-height: 0;"> R$
+                        2.000,00 </p>
+                </div>
+                <div style="display: flex;align-items: center;justify-content: space-around;flex-direction: column;">
+                    <p class="preco" style="color: #18e6ac;font-size: 54px;font-weight:  bold;line-height: 0;">
+                        R$&nbsp;1.500,00</p>
+                    <p style="line-height: 0;">à vista no pix</p>
+                </div>
+            </div>
+            <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+                <img src="./img/download.png" alt="pix" style="width: 210px;border: 1px solid white;padding: 10px;">
+                <p style="text-align: center;">PIX<br>Vando Carvalho Rodrigues Pinto<br>Chave-pix: 71730745172 </p>
             </div>
         </section>
-
     </main>
-    <footer>
-        <div>
-            <p>Copyright © 2024 SegPort | Powered by SegPort</p>
-        </div>
-        <a href="#"><img src="img/icon/segportaria.png" alt=""></a>
-    </footer>
-
-    <script src="./scripts/script.js"></script>
 </body>
-
-</html>
